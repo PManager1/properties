@@ -4,27 +4,16 @@
   angular
     .module('properties')
     .controller('PropertiesListController', PropertiesListController);
-
   PropertiesListController.$inject = ['$scope','$rootScope','PropertiesService'];
-
   function PropertiesListController($scope, $rootScope, PropertiesService) {
     var vm = this;
-
     vm.properties = PropertiesService.query();
-
-    
     $scope.properties = vm.properties; 
-
     console.log(' vm.properties =',vm.properties); 
-
-
   $scope.selected = [];
-  
   $rootScope.propertiesSelected = []; 
-
-
   $scope.limitOptions = [5, 10, 15];
-  
+
   $scope.options = {
     rowSelection: true,
     multiSelect: true,
@@ -43,8 +32,6 @@
   };
 
 $scope.rowSelected; 
-  
-
   
   $scope.editComment = function (event, dessert) {
     event.stopPropagation(); // in case autoselect is enabled
